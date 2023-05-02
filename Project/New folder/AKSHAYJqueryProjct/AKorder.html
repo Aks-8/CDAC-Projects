@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Order page</title>
+	<style type="text/css">
+	   	.abc{
+         
+		}
+		.xyz{
+			border: solid;
+			width: 300px;
+            float: left;
+            text-align: center;
+    }
+		
+	</style>
+</head>
+<body>
+
+<div class="abc">
+<div class="xyz">	
+<img src="home/product1.jpg">
+<h4>Product 1</h4>
+<h4><del>5000</del>2000</h4>
+<button>Add To Cart</button>
+</div>
+
+<div class="xyz">	
+<img src="home/product2.jpg">
+<h4>Product 2</h4>
+<h4><del>6000</del>3000</h4>
+<button id="btn">Add To Cart</button>
+</div>
+
+<div class="xyz">	
+<img src="home/product3.jpg">
+<h4>Product 3</h4>
+<h4><del>4000</del>1000</h4>
+<button id="btn">Add To Cart</button>
+</div>
+</div>
+
+<div>
+	<p>
+		Enter Your Customer ID:<br />
+		<input type="text" name="cid" id="cid">
+	</p>
+	<p>
+		Enter Product Id:<br />
+		<input type="text" name="prod_id" id="prod_id">
+	</p>
+	<p>
+		Enter Qty:<br />
+		<input type="text" name="qty" id="qty">
+	</p>
+
+	<button id="button" type="button" >Place order</button>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+			
+			var orders=[];
+		$("button").click(function(){
+			//alert();
+
+			
+			
+			
+
+        	var cid = $("#cid").val();
+        	var product = $("#prod_id").val();
+        	var qty = $("#qty").val();
+        	
+			
+        	//console.log(cid +" " + product+" "+qty);
+        		var order = {
+        			"customer_id": cid ,
+				"product_id": product,
+				"product_quantity": qty
+        		};
+        		
+        		
+        		orders.push(order) ;
+        		
+				/*var cid = $("#cid").val();
+        		var product = $("#prod_id").val();
+        		var qty = $("#qty").val();
+            
+        		customer_id[index]= cid ;
+        		product_id[index]=product;
+        		product_quantity[index]= qty;*/
+        		
+
+        		//console.log(orders);
+				localStorage.setItem("orders",JSON.stringify(orders));
+        	
+		});
+
+		
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login-Page</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    
+    	//var cid = $("#cid").css({"border":"1px solid red"});
+		 
+	 $(document).ready(function(){
+
+	 
+
+	 	$("#btn").click(function(){
+	 		var cuid = $("#cid").val();
+	 	//console.dir($("#cid"));
+        var pawd = $("#pwd").val();
+        
+
+       var customers = JSON.parse(localStorage.getItem("customers"));
+        //alert(customers);
+        $.each(customers, function(index,customer){
+        	/*console.log(cuid);
+            console.log(pawd);
+        	console.log(customer.cid + " " + customer.pwd)
+        	console.log(cuid  == customer.cid);
+            console.log(pawd == customer.pwd);*/
+            console.log(cuid  == customer.cid && pawd == customer.pwd);
+           if(cuid==customer.cid&&pawd==customer.pwd){
+              $("#demo").text("Success");
+              window.location.href = "AKorder.html?"+cuid;
+               return false; 
+         	}
+             else{
+             
+              $("#demo").text("Failed ");
+             } 
+        })
+       });
+	 });
+</script>
+</head>
+<body>
+<form>
+	<p>
+		Enter Id:<br />
+		<input type="text" name="cid" id="cid">
+	</p>
+	<p>
+		Enter Password:<br />
+		<input type="Password" name="pass" id="pwd">
+	</p>
+	<p>
+		<button type="button" name="login" value="Login" id="btn">Login</button>
+	</p>
+</form>
+
+<div id="demo">
+	
+</div>
+
+
+</body>
+</html>

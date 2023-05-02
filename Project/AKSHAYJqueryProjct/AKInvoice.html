@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Sales Application</title>
+	
+	
+</head>
+<body>
+<h1>List of  Products</h1>
+<table>
+	<thead>
+		    <th>Product No</th>
+			  <th>Price</th>
+			   <th>Stock</th>
+   </thead>
+   <tbody id="abc">
+   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   	<script type="text/javascript">
+   /*		
+ var products = JSON.parse(localStorage.getItem("products"));
+*/
+ 
+ /*
+$.products.forEach(function(index, product){
+      var str = `<tr><td>${product.pno}</td><td>${product.price}</td><td>${product.stock}</td></tr>`;
+      $("#abc").append(str);
+  });
+  */
+  $(document).ready(function(){
+  var queryString = location.search.substring(1)
+      
+	ans = JSON.parse(localStorage.getItem("orders"));
+    
+   // console.log(fans);
+    $.each(ans,function(index, order){
+      console.log(queryString);
+      console.log(order.customer_id);
+      console.log(queryString==order.customer_id);
+      if(queryString==order.customer_id){
+      var str = `<tr><td>${order.product_id}</td><td>${order.product_quantity}</td></tr>`;
+      $("#abc").append(str);
+    }
+  });
+
+    $("#logout").click(function(){
+      alert();
+      localStorage.removeItem("orders");
+      window.location.href = "AKInvoice.html";
+    });
+    
+  });
+  </script>
+   </tbody>
+</table>
+<a href="AKLogout.html" id="logout">Login</a>
+</body>
+</html>

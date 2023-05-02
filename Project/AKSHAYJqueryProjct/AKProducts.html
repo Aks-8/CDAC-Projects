@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Sales Application</title>
+	
+	
+</head>
+<body>
+<h1>List of  Products</h1>
+<table>
+	<thead>
+		    <th>Product No</th>
+			  <th>Price</th>
+			   <th>Stock</th>
+   </thead>
+   <tbody id="abc">
+   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   	<script type="text/javascript">
+   /*		
+ var products = JSON.parse(localStorage.getItem("products"));
+*/
+ 
+ /*
+$.products.forEach(function(index, product){
+      var str = `<tr><td>${product.pno}</td><td>${product.price}</td><td>${product.stock}</td></tr>`;
+      $("#abc").append(str);
+  });
+  */
+  
+	ans = localStorage.getItem("products");
+    fans = JSON.parse(ans);
+    console.log(fans);
+    $.each(fans,function(index, product){
+      var str = `<tr><td>${product.pno}</td><td>${product.price}</td><td>${product.stock}</td></tr>`;
+      $("#abc").append(str);
+  });
+     
+  </script>
+   </tbody>
+</table>
+<a href="AKLogin.html">Login</a>
+</body>
+</html>

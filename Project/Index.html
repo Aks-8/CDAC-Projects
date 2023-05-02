@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sales Application</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		var products =[
+			{pno:101, price:500 ,stock:6},
+			{pno:102, price:800 ,stock:9},
+			{pno:103, price:5000 ,stock:3},
+			{pno:104, price:8900 ,stock:7}
+			];
+			//alert(typeof products);
+		//console.log(products);
+		 var customers = [
+		  {cid : "id101", pwd : "pw101", credit:10000},
+		  {cid : "id102", pwd : "pw102", credit:20000},
+		  {cid : "id103", pwd : "pw103", credit:30000},
+		  {cid : "id104", pwd : "pw104", credit:40000}
+		 ];
+
+		 var records = [
+           {price1 : 3000}
+          ];
+          
+          var records1 = [
+           {price1 : 4000}
+          ];
+
+          var records2 = [
+           {price1 : 5000}
+          ];
+			$(document).ready(function(){
+				localStorage.setItem("products",JSON.stringify(products));
+				localStorage.setItem("customers",JSON.stringify(customers));
+				localStorage.setItem("records",JSON.stringify(records));
+				localStorage.setItem("records1",JSON.stringify(records1));
+				localStorage.setItem("records2",JSON.stringify(records2));
+				//alert(typeof products);
+			});
+		
+	</script>
+</head>
+<body>
+		<h1>Sales order processing</h1>
+		<a href="Products.html">Products</a>
+		<a href="Login.html">Login</a>
+		<a href="order.html">Order</a>
+		<a href=""> Invoice</a>
+		<a href="">Logout</a>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Order page</title>
+	<style type="text/css">
+	   	.abc{
+       
+		}
+		.xyz{
+	 /* 	border: solid;  */
+			width: 300px;
+            float: left;
+            text-align: center;
+    }
+		
+	</style>
+</head>
+<body>
+
+
+
+<div>
+	<p>
+		Enter Your Customer ID:<br />
+		<input type="text" name="cid" id="cid" readonly>
+	</p>
+	<p>
+		Enter Product Id:<br />
+		<input type="text" name="prod_id" id="prod_id">
+	</p>
+	<p>
+		Enter Qty:<br />
+		<input type="text" name="qty" id="qty">
+	</p>
+
+	<button id="button1" type="button" >Place order</button>
+
+</div>
+
+<div  style="padding-top: 20px">
+	<button id="cart" type="button" style="display: none"> </button>
+</div>
+
+
+<div class="abc">
+<div class="xyz">	
+<img src="product1.jpg">
+<h3>Product 1</h3>
+<p id="demo2">
+<h4>1000</h4>
+</p>
+<button id="btn">Add To Cart</button>
+</div>
+
+<div class="xyz">	
+<img src="product2.jpg">
+<h3>Product 2</h3>
+<div id="demo3">
+<h4>2000</h4>
+</div>
+<button id="btn">Add To Cart</button>
+</div>
+
+<div class="xyz">	
+<img src="product3.jpg">
+<h3>Product 3</h3>
+<p id="demo4">
+<h4>3000</h4>
+</p>
+<button id="btn">Add To Cart</button>
+</div>
+
+<div class="xyz">	
+<img src="product4.jpg">
+<h3>Product 4</h3>
+<p id="demo4">
+<h4>4000</h4>
+</p>
+<button id="btn">Add To Cart</button>
+</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+			var queryString = location.search.substring(1)
+			//console.log(queryString);
+			$("#cid").val(queryString);
+			var orders1=[];
+		$("#button1").click(function(){
+			//alert();
+        	//var cid = $("#cid").val();
+        	var product = $("#prod_id").val();
+        	var qty = $("#qty").val();
+        	
+			
+        	//console.log(cid +" " + product+" "+qty);
+        		var order = {
+        			"customer_id": queryString ,
+				"product_id": product,
+				"product_quantity": qty
+        		};
+        		
+        		
+        		orders1.push(order) ;
+        		$("#cart").css("display","block");
+				$("#cart").text(orders1.length);
+        		
+				/*var cid = $("#cid").val();
+        		var product = $("#prod_id").val();
+        		var qty = $("#qty").val();
+            
+        		customer_id[index]= cid ;
+        		product_id[index]=product;
+        		product_quantity[index]= qty;*/
+        		
+
+        		//console.log(orders);
+				localStorage.setItem("orders",JSON.stringify(orders1));
+				
+				
+        	
+		});
+				
+		$("#cart").click( function(){
+				  window.location.href = "AKInvoice.html?"+queryString;
+		});
+		
+	});
+</script>
+</body>
+</html>

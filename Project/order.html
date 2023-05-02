@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Order page</title>
+	<style type="text/css">
+	   	.abc{
+         
+		}
+		.xyz{
+			border: solid;
+			width: 300px;
+            float: left;
+            text-align: center;
+    }
+		
+	</style>
+</head>
+<body>
+
+<div class="abc">
+<div class="xyz">	
+<img src="home/product1.jpg">
+<h3>Product 1</h3>
+<p id="demo2">
+<h4></h4>
+</p>
+<button id="btn">Add To Cart</button>
+</div>
+
+<div class="xyz">	
+<img src="home/product2.jpg">
+<h3>Product 2</h3>
+<div id="demo3">
+<h4></h4>
+</div>
+<button id="btn">Add To Cart</button>
+</div>
+
+<div class="xyz">	
+<img src="home/product3.jpg">
+<h3>Product 3</h3>
+<p id="demo4">
+<h4></h4>
+</p>
+<button id="btn">Add To Cart</button>
+</div>
+</div>
+
+<p id="demo1"></p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	    $(document).ready(function(){
+		$("button").click(function(){
+			document.getElementById("demo1").innerHTML = "order placed";
+		})
+	});
+
+	 ans = localStorage.getItem("records");
+      fans = JSON.parse(ans);
+       console.log(fans);
+
+	 $.each(fans,function(index, product){
+      var str = `<h4>${product.price1}</h4>`;
+      $("#demo2").append(str);
+      console.log(str);
+  });	
+
+
+	 ans = localStorage.getItem("records1");
+      fans = JSON.parse(ans);
+       console.log(fans);
+
+	 $.each(fans,function(index, product1){
+      var str = `<h4>${product1.price1}</h4>`;
+      $("#demo3").append(str);
+      console.log(str);
+  });
+
+  ans = localStorage.getItem("records2");
+      fans = JSON.parse(ans);
+       console.log(fans);
+
+	 $.each(fans,function(index, product1){
+      var str = `<h4>${product1.price1}</h4>`;
+      $("#demo4").append(str);
+      console.log(str);
+  });		
+
+</script>
+
+<!--
+<div class="xyz">	
+<img src="home/product2.jpg">
+<h4>Product 2</h4>
+<h4><del>6000</del>3000</h4>
+<button id="btn">Add To Cart</button>
+</div>
+
+<div class="xyz">	
+<img src="home/product3.jpg">
+<h4>Product 3</h4>
+<h4><del>4000</del>1000</h4>
+<button id="btn">Add To Cart</button>
+</div>
+
+
+            $(document).ready(function () {        
+ 
+            if(localStorage.getItem("records")) {
+                $.records.html(localStorage.getItem("records"));
+            }
+            $('button').click(function () {        
+                $.records.append('<tr><td>' + $('#cid').val() + '</td><td>' + $('#pwd').val() + '</td></tr>');             
+                localStorage.setItem("records", $records.html());
+            });
+
+        })
+    
+       
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("button").click(function(){
+			document.getElementById("demo").innerHTML = "order placed";
+		})
+	});
+  ------------->
+
+
+
+
+</script>
+</body>
+</html>

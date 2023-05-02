@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login-Page</title>
+</head>
+<body>
+<form>
+	<p>
+		Enter Id:<br />
+		<input type="text" name="cid" id="cid">
+	</p>
+	<p>
+		Enter Password:<br />
+		<input type="Password" name="pass" id="pwd">
+	</p>
+	<p>
+		<button id="btn">Login</button>
+	</p>
+</form>
+<div id="demo"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    
+
+	 $(document).ready(function(){
+	 	$("#btn").click(function(){
+        var cid = $("#cid").val();
+        var pwd = $("#pwd").val();
+
+        var customers = JSON.parse(localStorage.getItem("customers"));
+        //alert(customers);
+        $.each(customers, function(index,customer){
+           if(cid  == customer.cid && pwd == customer.pwd){
+              $("#demo").text("valid");
+             }
+      
+             else{
+              $("#demo").text("Invalid");
+             }  
+        })
+       })
+	 });
+</script>
+</body>
+</html>

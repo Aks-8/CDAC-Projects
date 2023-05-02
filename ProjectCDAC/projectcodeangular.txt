@@ -1,0 +1,1506 @@
+<!-----------------------------------------------------INDEX.html---------------------------------------->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SalesServicesSystem</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<!-------------------------------------Cusomer Profile---------------------------->
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+<!-----------------------------------------------------INDEX.html---------------------------------------->
+<!-----------------------------------------------------App.routing.module.ts----------------------------->
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { RegistrationComponent} from './registration/registration.component';
+import { HomeComponent} from './home/home.component';
+import { VehicleDetailsComponent} from './vehicle-details/vehicle-details.component';
+import { ShowroomComponent} from './showroom/showroom.component';
+import { SalseinvoiceComponent } from './salseinvoice/salseinvoice.component';
+import { CustomerappointmentComponent } from './customerappointment/customerappointment.component';
+import { TechnicalComponent } from './technical/technical.component';
+import { ServicedatailComponent } from './servicedatail/servicedatail.component';
+import { SparedetailsComponent } from './sparedetails/sparedetails.component';
+import { CustumerprofileComponent } from './custumerprofile/custumerprofile.component';
+ // import { from } from 'rxjs';
+//import { from } from 'rxjs';
+
+const routes: Routes = [
+  {path:'', component:HomeComponent},
+  {path:'registration', component:RegistrationComponent},
+  {path:'vehicle-details', component:VehicleDetailsComponent},
+  {path:'showroom', component:ShowroomComponent},
+  {path:'salseinvoice',component:SalseinvoiceComponent},
+  {path:'customerappointment',component:CustomerappointmentComponent},
+  {path:'technical',component:TechnicalComponent},
+  {path:'servicedatail',component:ServicedatailComponent},
+  {path:'sparedetails',component:SparedetailsComponent},
+  {path:'custumerprofile',component:CustumerprofileComponent}
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+<!-----------------------------------------------------App.routing.module.ts----------------------------->
+<!----------------------------------------------------App.module.ts--------------------------------------->
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { ShowroomComponent } from './showroom/showroom.component';
+import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
+import { ReactiveFormsModule , FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SalseinvoiceComponent } from './salseinvoice/salseinvoice.component';
+import { CustomerappointmentComponent } from './customerappointment/customerappointment.component';
+import { TechnicalComponent } from './technical/technical.component';
+import { ServicedatailComponent } from './servicedatail/servicedatail.component';
+import { SparedetailsComponent } from './sparedetails/sparedetails.component';
+import { CustumerprofileComponent } from './custumerprofile/custumerprofile.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    RegistrationComponent,
+    HeaderComponent,
+    FooterComponent,
+    ShowroomComponent,
+    VehicleDetailsComponent,
+    SalseinvoiceComponent,
+    CustomerappointmentComponent,
+    TechnicalComponent,
+    ServicedatailComponent,
+    SparedetailsComponent,
+    CustumerprofileComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule , FormsModule,
+    HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+<!----------------------------------------------------App.module.ts--------------------------------------->
+<!----------------------------------------------------App.componant.html--------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    
+    <app-header></app-header>
+  <!----  <app-home></app-home>   -->
+  <!---  <app-registration></app-registration> -->
+  <!----   <app-vehicle-details></app-vehicle-details> --->
+  <!----  <app-showroom></app-showroom>   --->  
+  <!---      <app-salseinvoice></app-salseinvoice>   -->   
+  <!--- <app-customerappointment></app-customerappointment> -->   
+   <!----  <app-technical></app-technical>  -->
+   <router-outlet></router-outlet>    
+    <app-footer></app-footer>
+</body>
+</html>
+<!----------------------------------------------------App.componant.html--------------------------------->
+<!----------------------------------------------------App.componant.ts--------------------------------->
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'SalesServicesSystem';
+}
+<!----------------------------------------------------App.componant.ts--------------------------------->
+<!-------------------------------------------customerappoinment.componat.html---------------->
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Appointment</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <h2>Customer Appointment</h2>
+  <div class="row">
+   <div class="col-6">
+  <form [formGroup]="caForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Customer Id:</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="cid">
+      </div>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">chessis No:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="chk">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Check In Date:</label>
+    <input type="date" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="date">
+  </div>
+  <div class="mb-3">
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Vehicle No:</label>
+    <input type="text" class="form-control" id="cno" aria-describedby="emailHelp" formControlName="vno">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Driver Name:</label>
+    <input type="text" class="form-control" id="add" aria-describedby="emailHelp" formControlName="dname">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Driver Phone No:</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="dphno">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Service Descriptio</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="sdsc"></textarea>
+  </div>
+  </div>
+  <button type="submit" class="btn btn-primary text-center">Submit</button>
+</form>
+<p>
+  Form Status: {{ caForm.status }}
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+<!-------------------------------------------customerappoinment.componat.html---------------->
+<!-------------------------------------------customerappoinment.componat.ts---------------->
+import { Component, OnInit } from '@angular/core';
+import {FormControl,FormGroup,FormBuilder,Validators} from "@angular/forms";
+import { MyserviceService } from '../myservice.service';
+
+@Component({
+  selector: 'app-customerappointment',
+  templateUrl: './customerappointment.component.html',
+  styleUrls: ['./customerappointment.component.css']
+})
+
+export class CustomerappointmentComponent implements OnInit {
+
+  public caForm:FormGroup;
+
+  constructor(private fb:FormBuilder, public obj1:MyserviceService) { }
+
+  ngOnInit(): void {
+
+    this.caForm = this.fb.group({
+      cid:['',Validators.required],
+      chk:['',Validators.required],
+      date:['',Validators.required],
+      vno:['',Validators.required],
+      dname:['',Validators.required],
+      dphno:['',Validators.required],
+      sdsc:['',Validators.required]
+   })
+
+    console.log("Registration Componant");
+     console.log(this.obj1);
+     //this.obj1.fetchData();
+     this.obj1.postData({name:this.caForm.value}).subscribe(
+       (res_from_service_from_node)=>{
+        console.log("Add Cat Componant");
+         console.log(res_from_service_from_node);
+       },
+       (error)=>{
+        console.log(error);
+       }
+     );
+
+  }
+
+
+  onSubmit(){
+    console.log(this.caForm.value);
+   // this.Obj2= this.rgForm.value
+  }
+}
+
+<!-------------------------------------------customerappoinment.componat.ts---------------->
+<!---------------------------------------------customerprofile.html--------------------------------->
+<div class="container">
+	<div class="row logo">
+		<div class="col-xl-4 logo_image">
+			<img src="\assets\images\home\logo1.jpg" width=150px height=150px class="img-fluid">
+		</div>
+		<div class="col-xl-8">
+			<ul class="nav justify-content-end">
+               <li class="nav-item">
+                 <a class="nav-link active" href="/">Home</a>
+               </li>
+             <li class="nav-item">
+              <a class="nav-link" href="">Profile</a>
+             </li>
+             <li class="nav-item">
+              <a class="nav-link" href="">About</a>
+             </li>
+             </ul>
+		</div>
+	</div> 
+</div>
+<!------------------------------------------------------------------------>
+<div class="container">
+  <div class="row">
+      <div class="col-xl-4">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+          </ul>                 
+      </div>
+      <div class="col-xl-6">
+        <p>
+            he text-align property specifies the horizontal alignment 
+            of text in an element. Default value: left if direction is 
+            ltr, and right if direction is rtl. Inherited: yes.
+            he text-align property specifies the horizontal alignment 
+            of text in an element. Default value: left if direction is 
+            ltr, and right if direction is rtl. Inherited: yes.
+            he text-align property specifies the horizontal alignment 
+            of text in an element. Default value: left if direction is 
+            ltr, and right if direction is rtl. Inherited: yes.
+            he text-align property specifies the horizontal alignment 
+            of text in an element. Default value: left if direction is 
+            ltr, and right if direction is rtl. Inherited: yes.
+        </p>
+      </div>        
+  </div>
+</div>
+<!------
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+----->
+<!---------------------------------------------customerprofile.html--------------------------------->
+<!---------------------------------------------customerprofile.ts--------------------------------->
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-custumerprofile',
+  templateUrl: './custumerprofile.component.html',
+  styleUrls: ['./custumerprofile.component.css']
+})
+export class CustumerprofileComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+<!---------------------------------------------customerprofile.ts--------------------------------->
+<!---------------------------------------------header.html--------------------------------------------->
+<div class="container">
+	<div class="row logo">
+		<div class="col-xl-2 logo_image">
+			<img src="assets\images\home\ssslogo.png" width=50px height=50px class="img-fluid">
+		</div>
+		<div class="col-xl-10">
+			<ul class="nav justify-content-end">
+               <li class="nav-item">
+                 <a class="nav-link active" href="/custumerprofile">My Account</a>
+               </li>
+             <li class="nav-item">
+              <a class="nav-link" href="">Profile</a>
+             </li>
+             <li class="nav-item">
+              <a class="nav-link" href="/salseinvoice">Invoice</a>
+             </li>
+             </ul>
+		</div>
+	</div> 
+</div>
+<!-----------------------------------------NAVBAR------------------------------------------->
+<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light search">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/registration">Registration</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/vehicle-details">Vehicale Detail</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/showroom">Showrooms</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/customerappointment">CustAppt</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/technical">Technical</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/servicedatail">Servise Card</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sparedetails">Spares</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+</div>
+<!--------------------------------END--------------------------------------->
+<!---------------------------------------------header.html--------------------------------------------->
+<!---------------------------------------------header.ts--------------------------------------------->
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
+})
+export class HeaderComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+
+<!---------------------------------------------header.ts--------------------------------------------->
+<!---------------------------------------------header.css--------------------------------------------->
+  .container{
+   background-color: rgb(247, 244, 241);
+}
+<!---------------------------------------------header.css--------------------------------------------->
+<!---------------------------------------------footer.html--------------------------------------------->
+  <!-- Site footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>About</h6>
+          <p class="text-justify">Ashok Leyland, flagship of the Hinduja group, is the 2nd largest manufacturer of commercial vehicles in India, the 3rd largest manufacturer of buses in the world, and the 10th largest manufacturers of trucks. Headquartered in Chennai, 9 manufacturing plants gives an international footprint - 7 in India, a bus manufacturing facility in Ras Al Khaimah (UAE), one at Leeds, United Kingdom and a joint venture with the Alteams Group for the manufacture of high-press die-casting extruded aluminum components for the automotive and telecommunications sectors, Ashok Leyland has a well-diversified portfolio across the automobile industry. Ashok Leyland has recently been ranked as 34th best brand in India..</p>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Categories</h6>
+          <ul class="footer-links">
+            <li><a href="http://scanfcode.com/category/c-language/">Showrooms List</a></li>
+            <li><a href="http://scanfcode.com/category/front-end-development/">Servising</a></li>
+            <li><a href="http://scanfcode.com/category/back-end-development/">Cottesion</a></li>
+            <li><a href="http://scanfcode.com/category/java-programming-language/">Datails</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="http://scanfcode.com/about/">About Us</a></li>
+            <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+            <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+            <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
+       <a href="#">Scanfcode</a>.
+          </p>
+        </div>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+          </ul>
+        </div>
+      </div>
+    </div>
+</footer>
+<!---------------------------------------------footer.html--------------------------------------------->
+<!---------------------------------------------footer.ts--------------------------------------------->
+ import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css']
+})
+export class FooterComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+<!---------------------------------------------footer.ts--------------------------------------------->
+<!---------------------------------------------footer.css--------------------------------------------->
+  .site-footer
+{
+  background-color:#26272b;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+<!---------------------------------------------footer.css--------------------------------------------->
+<!---------------------------------------------home.html--------------------------------------------->
+<div class="container">
+    <br>
+    <div class="row">
+      <div class="container-fluid">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="assets\images\home\background-1.png" class="d-block w-100 img-fluid" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="assets\images\home\background-5.jpg" class="d-block w-100 img-fluid" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="assets\images\home\background-4.jpg" class="d-block w-100 img-fluid" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="assets\images\home\background-6.jpg" class="d-block w-100 img-fluid" alt="...">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-6">
+        <img src="assets\images\home\ssslogo.png"  width=300px height=300px class="img-fluid">
+      </div>
+    <div class="col-xl-6">
+  <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email:</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" #myvar1><span *ngIf="msg1">Email is requied</span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password:</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" #myvar2><span *ngIf="msg2">Password is requied</span>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Remaimber Me:</label>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="validate(myvar1,myvar2)">Login</button>
+</form>
+</div>
+</div>
+</div>
+
+
+<!---------------------------------------------home.html--------------------------------------------->
+<!---------------------------------------------home.ts--------------------------------------------->
+  import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+   msg1:boolean = false;
+   msg2:boolean = false;
+
+   public user:any={"email":"akshay01@gmail",
+    "password":"qwerty"
+  }
+
+  constructor(private route: ActivatedRoute ,private router: Router) { }
+
+  ngOnInit(): void {
+    
+  }
+  
+  validate(rec1,rec2){
+
+   if(rec1.value == ""){
+     this.msg1 = true;
+   }
+   else if(rec2.value == ""){
+    this.msg1 = false;
+    this.msg2 = true;
+   }
+   else{
+     this.msg1 = false;
+     this.msg2 = false;
+   }
+    if(rec1.value==this.user.email &&rec2.value==this.user.password){
+      this.router.navigate(['vehicle-details'], { relativeTo: this.route });
+    }
+  else{
+    
+    this.router.navigate(['registration'], { relativeTo: this.route });
+  }
+ }
+
+}
+
+<!---------------------------------------------home.ts--------------------------------------------->
+<!---------------------------------------------registration.html--------------------------------------------->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custumer Registration Detail</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <h2>Custumer Registration</h2>
+  <div class="row">
+   <div class="col-6">
+  <form [formGroup]="rgForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Customer No:</label>
+    <input type="number" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="cno">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Customer Name:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="cname">
+  </div>
+  <div class="mb-3">
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Phone No:</label>
+    <input type="text" class="form-control" id="cno" aria-describedby="emailHelp" formControlName="phno">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Address:</label>
+    <input type="text" class="form-control" id="add" aria-describedby="emailHelp" formControlName="add">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email:</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password:</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="pass">
+  </div>
+  </div>
+  <button type="submit" class="btn btn-primary text-center">Register</button>
+</form>
+<p>
+  Form Status: {{ rgForm.status }}
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+<!---------------------------------------------registration.html--------------------------------------------->
+<!---------------------------------------------registration.ts--------------------------------------------->
+  import { Component, OnInit } from '@angular/core';
+import {FormControl,FormGroup,FormBuilder,Validators} from "@angular/forms";
+import { MyserviceService } from '../myservice.service';
+
+@Component({
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css']
+})
+
+export class RegistrationComponent implements OnInit {
+   
+  public rgForm:FormGroup;
+
+  constructor(private fb:FormBuilder, public obj1:MyserviceService) { }
+
+ // public Obj2:any;
+
+  ngOnInit(): void {
+    
+     this.rgForm = this.fb.group({
+       cno:['',Validators.required],
+       cname:['',Validators.required],
+       phno:['',Validators.required],
+       add:['',Validators.required],
+       email:['',Validators.required],
+       pass:['',Validators.required]
+     })
+     
+    }
+    
+  onSubmit(){
+    console.log(this.rgForm.value);
+   // this.Obj2= this.rgForm.value
+   console.log("Registration Componant");
+   console.log(this.obj1);
+   //this.obj1.fetchData();
+   this.obj1.postData({name:this.rgForm.value}).subscribe(
+     (res_from_service_from_node)=>{
+      console.log("Add Cat Componant");
+       console.log(res_from_service_from_node);
+     },
+     (error)=>{
+      console.log(error);
+     }
+   );
+  }
+}
+
+<!---------------------------------------------registration.ts--------------------------------------------->
+<!---------------------------------------------salesinvoice.html--------------------------------------------->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sales Invoice</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <h2>Sales Invoice</h2>
+  <div class="row">
+   <div class="col-6">
+  <form [formGroup]="inForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Customer No:</label>
+    <input type="number" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="cno">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Invoice No:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="ino">
+  </div>
+  <div class="mb-3">
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">City:</label>
+    <input type="text" class="form-control" id="cno" aria-describedby="emailHelp" formControlName="city">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Quantity:</label>
+    <input type="number" class="form-control" id="add" aria-describedby="emailHelp" formControlName="qty">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Rate:</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="rate">
+  </div>
+  </div>
+  <button type="submit" class="btn btn-primary text-center">Submit</button>
+</form>
+<p>
+  Form Status: {{ inForm.status }}
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+<!---------------------------------------------salesinvoice.html--------------------------------------------->
+<!---------------------------------------------salesinvoice.ts--------------------------------------------->
+import { Component, OnInit } from '@angular/core';
+import {FormControl,FormGroup,FormBuilder,Validators} from "@angular/forms";
+import { MyserviceService } from '../myservice.service';
+
+@Component({
+  selector: 'app-salseinvoice',
+  templateUrl: './salseinvoice.component.html',
+  styleUrls: ['./salseinvoice.component.css']
+})
+
+export class SalseinvoiceComponent implements OnInit {
+  public inForm:FormGroup;
+
+  constructor(private fb:FormBuilder, public obj1:MyserviceService) { }
+  
+  public Obj2:any;  
+  
+  ngOnInit(): void {
+
+    this.inForm = this.fb.group({
+      cno:['',Validators.required],
+      ino:['',Validators.required],
+      city:['',Validators.required],
+      qty:['',Validators.required],
+      rate:['',Validators.required]
+    })
+    console.log("Registration Componant");
+     console.log(this.obj1);
+     this.obj1.fetchData();
+}
+onSubmit(){
+  console.log(this.inForm.value);
+  this.Obj2= this.inForm.value
+}
+}
+
+<!---------------------------------------------salesinvoice.ts--------------------------------------------->
+<!---------------------------------------------servicedetails.html--------------------------------------------->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Technical Description</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <h2>Technical Description</h2>
+  <div class="row">
+   <div class="col-6">
+  <form [formGroup]="sdForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Servise Card No:</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="scno">
+      </div>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Servise Description No:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="sdno">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Chessis No:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="chk">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Customer Id:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="cid">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Check In Date:</label>
+    <input type="date" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="date">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Vehicle No:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="vno">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Driver Name:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="dname">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Driver Phone No:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="phno">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Spare Id:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="sid">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Spare Name:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="sname">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Spare Quantity:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="sqty">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Spare Cost:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="scost">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Cost:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="tcost">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Service Descriptio</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="sdsc"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary text-center">Submit</button>
+</form>
+<p>
+  Form Status: {{ sdForm.status }}
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
+<!---------------------------------------------servicedetails.html--------------------------------------------->
+<!---------------------------------------------servicedetails.ts--------------------------------------------->
+import { Component, OnInit } from '@angular/core';
+import {FormControl,FormGroup,FormBuilder,Validators} from "@angular/forms";
+import { MyserviceService } from '../myservice.service';
+
+
+@Component({
+  selector: 'app-servicedatail',
+  templateUrl: './servicedatail.component.html',
+  styleUrls: ['./servicedatail.component.css']
+})
+export class ServicedatailComponent implements OnInit {
+  public sdForm:FormGroup;
+  constructor(private fb:FormBuilder, public obj1:MyserviceService) { }
+
+  ngOnInit(): void {
+    this.sdForm = this.fb.group({
+      scno:['',Validators.required],
+      sdno:['',Validators.required],
+      chk:['',Validators.required],
+      cid:['',Validators.required],
+      date:['',Validators.required],
+      vno:['',Validators.required],
+      dname:['',Validators.required],
+      phno:['',Validators.required],
+      sid:['',Validators.required],
+      sname:['',Validators.required],
+      sqty:['',Validators.required],
+      scost:['',Validators.required],
+      tcost:['',Validators.required],
+      sdsc:['',Validators.required]
+  })
+  console.log("Registration Componant");
+     console.log(this.obj1);
+     //this.obj1.fetchData();
+     this.obj1.postData({name:this.sdForm.value}).subscribe(
+       (res_from_service_from_node)=>{
+        console.log("Add Cat Componant");
+         console.log(res_from_service_from_node);
+       },
+       (error)=>{
+        console.log(error);
+       }
+     );
+  }
+  onSubmit(){
+    console.log(this.sdForm.value);
+   // this.Obj2= this.rgForm.value
+  }
+}
+<!---------------------------------------------servicedetails.ts--------------------------------------------->
+<!---------------------------------------------showroom.html--------------------------------------------->
+<h1 class="text-center" style="background-color: cadetblue;">Showrooms Details</h1>
+<div class="container">
+	<div class="row">
+	 <div class="col-xl-4 col-6 text-center">
+        <h2>ASHOK LEYLAND LTD.</h2>
+       <p>
+       	Survey No 353, Village Pelhar, Opp Skyway Hotel, Western Express Highway, Vasai, Palghar
+       </p>
+       <p>
+       	<button type="button" class="btn btn-info">Contact Showroom</button>
+       </p>     
+  </div>
+  <div class="col-xl-4 col-6 text-center">
+    <h2>Ajmera Motors.</h2>
+   <p>
+    Survey No 353, Village Pelhar\Nopp Skyway Hotel\Nwestern Express Highway\Ntal Vasai, Dist Palghar\Npelhar
+   </p>
+   <p>
+       <button type="button" class="btn btn-info">Contact Showroom</button>
+   </p>     
+</div>
+<div class="col-xl-4 col-6 text-center">
+    <h2>Automotive Manufacture Pvt. LTD.</h2>
+   <p>
+    Automotive House, 108, Bazar Ward, LBS Road, Behind Fauzia Hospital, Kurla West
+   </p>
+   <p>
+       <button type="button" class="btn btn-info">Contact Showroom</button>
+   </p>     
+</div>
+<div class="col-xl-4 col-6 text-center">
+    <h2>Automotive Manufacture Pvt. LTD.</h2>
+   <p>
+    Plot No 125/B 126/2 126/4 126/5, Nr.Phalaspha Village,Kanjurmarg\N Navi Mumbai
+   </p>
+   <p>
+       <button type="button" class="btn btn-info">Contact Showroom</button>
+   </p>     
+</div>
+<div class="col-xl-4 col-6 text-center">
+    <h2>Autotech Engineers</h2>
+   <p>
+    19/228 R C Barrack\Nchembur Colony\Nmumbai
+   </p>
+   <p>
+       <button type="button" class="btn btn-info">Contact Showroom</button>
+   </p>     
+</div>
+<div class="col-xl-4 col-6 text-center">
+    <h2>Automotive Manufacture Pvt. LTD.</h2>
+   <p>
+    Midc Plot No P-I-12,Nh3 , Additional Naik Ind,Area\N Nashik
+   </p>
+   <p>
+       <button type="button" class="btn btn-info">Contact Showroom</button>
+   </p>     
+</div>
+<div class="col-xl-4 col-6 text-center">
+    <h2>Mahaveer Wheels</h2>
+   <p>
+    Sunil Tower\Nnext To Bharat Petrol Pump\Nnear Hotel Dwarka\Nmumbai Agra Road\Nnashik
+   </p>
+   <p>
+       <button type="button" class="btn btn-info">Contact Showroom</button>
+   </p>     
+</div>
+<div class="col-xl-4 col-6 text-center">
+    <h2>Autoworld (A Unit Of N.G. Sales)</h2>
+   <p>
+    129/1/3, New Pune Mumbai Highway\Ntathawade,Mulshi(Taluk)\Npune\Nmaharashtra
+   </p>
+   <p>
+       <button type="button" class="btn btn-info">Contact Showroom</button>
+   </p>     
+</div>
+<div class="col-xl-4 col-6 text-center">
+    <h2>Automotive Manufacture Pvt. LTD.</h2>
+   <p>
+    Survey No 754,Pune Ahmednagar Road, Village Wagholi\N Pune
+   </p>
+   <p>
+       <button type="button" class="btn btn-info">Contact Showroom</button>
+   </p>     
+</div>
+    </div>
+</div>
+
+<!---------------------------------------------showroom.html--------------------------------------------->
+<!---------------------------------------------showroom.ts--------------------------------------------->
+  import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-showroom',
+  templateUrl: './showroom.component.html',
+  styleUrls: ['./showroom.component.css']
+})
+export class ShowroomComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+
+<!---------------------------------------------showroom.ts--------------------------------------------->
+<!---------------------------------------------showroom.css--------------------------------------------->
+.col-6{
+    border: solid;
+    border-radius: 10px;
+    border-color: chocolate;
+}
+<!---------------------------------------------showroom.css--------------------------------------------->
+<!---------------------------------------------sparedetails.html--------------------------------------------->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spare Detail</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <h2>Spare Detail</h2>
+  <div class="row">
+   <div class="col-6">
+  <form [formGroup]="spForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Spare Id:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="sid">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Spare Name:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="sname">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Spare Quantity:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="sqty">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Spare Cost:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="scost">
+  </div>
+  
+  
+  <button type="submit" class="btn btn-primary text-center">Submit</button>
+</form>
+<p>
+  Form Status: {{ spForm.status }}
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
+<!---------------------------------------------sparedetails.html--------------------------------------------->
+<!---------------------------------------------sparedetails.ts--------------------------------------------->
+import { Component, OnInit } from '@angular/core';
+import {FormControl,FormGroup,FormBuilder,Validators} from "@angular/forms";
+import { MyserviceService } from '../myservice.service';
+
+@Component({
+  selector: 'app-sparedetails',
+  templateUrl: './sparedetails.component.html',
+  styleUrls: ['./sparedetails.component.css']
+})
+export class SparedetailsComponent implements OnInit {
+  
+  public spForm:FormGroup;
+
+  constructor(private fb:FormBuilder, public obj1:MyserviceService) { }
+
+  ngOnInit(): void {
+    this.spForm = this.fb.group({
+     
+      sid:['',Validators.required],
+      sname:['',Validators.required],
+      sqty:['',Validators.required],
+      scost:['',Validators.required]
+      
+  })
+  console.log("Registration Componant");
+     console.log(this.obj1);
+     //this.obj1.fetchData();
+     this.obj1.postData({name:this.spForm.value}).subscribe(
+       (res_from_service_from_node)=>{
+        console.log("Add Cat Componant");
+         console.log(res_from_service_from_node);
+       },
+       (error)=>{
+        console.log(error);
+       }
+     );
+  }
+  onSubmit(){
+    console.log(this.spForm.value);
+   // this.Obj2= this.rgForm.value
+  }
+
+}
+<!---------------------------------------------sparedetails.ts--------------------------------------------->
+<!---------------------------------------------technical.html--------------------------------------------->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Technical Description</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <h2>Technical Description</h2>
+  <div class="row">
+   <div class="col-6">
+  <form [formGroup]="tdForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Serivse Descriptio No:</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="sdno">
+      </div>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">chessis No:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="chk">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Service Cost:</label>
+    <input type="text" class="form-control" id="cname" aria-describedby="emailHelp" formControlName="scost">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Service Descriptio</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="sdsc"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary text-center">Submit</button>
+</form>
+<p>
+  Form Status: {{ tdForm.status }}
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+<!---------------------------------------------technical.html--------------------------------------------->
+<!---------------------------------------------technical.ts--------------------------------------------->
+import { Component, OnInit } from '@angular/core';
+import {FormControl,FormGroup,FormBuilder,Validators} from "@angular/forms";
+import { MyserviceService } from '../myservice.service';
+
+@Component({
+  selector: 'app-technical',
+  templateUrl: './technical.component.html',
+  styleUrls: ['./technical.component.css']
+})
+export class TechnicalComponent implements OnInit {
+
+  public tdForm:FormGroup;
+
+  constructor(private fb:FormBuilder, public obj1:MyserviceService) { }
+
+  ngOnInit(): void {
+
+    this.tdForm = this.fb.group({
+      sdno:['',Validators.required],
+      chk:['',Validators.required],
+      scost:['',Validators.required],
+      sdsc:['',Validators.required]
+
+  })
+  
+  console.log("Registration Componant");
+     console.log(this.obj1);
+     //this.obj1.fetchData();
+     this.obj1.postData({name:this.tdForm.value}).subscribe(
+       (res_from_service_from_node)=>{
+        console.log("Add Cat Componant");
+         console.log(res_from_service_from_node);
+       },
+       (error)=>{
+        console.log(error);
+       }
+     );
+  }
+
+  onSubmit(){
+    console.log(this.tdForm.value);
+   // this.Obj2= this.rgForm.value
+  }
+
+}
+<!---------------------------------------------technical.ts--------------------------------------------->
+<!---------------------------------------------vehicledetails.html--------------------------------------------->
+<h1 class="text-center" style="background-color:burlywood;">Vehicle Details</h1>
+<div class="container">
+ <div class="row">
+<div class="col-xl-4 col-6 text-center">
+  <p>
+   <img src="/assets/images/home/truck-1.jpg" class="img-fluid">
+  </p>
+  <p>
+   <button (click)="hide_para()" class="btn btn-primary">View Details</button>
+ </p>
+ <p class="Myclass" *ngIf="status">
+	 contact no: +02560 - 85465622
+</p>     
+</div>
+<div class="col-xl-4 col-6 text-center">
+ <p>
+   <img src="/assets/images/home/truck-2.jpg" class="img-fluid">
+</p>
+<p>
+   <button (click)="hide_para()" class="btn btn-primary">View Details</button>
+ </p>
+ <p *ngIf="status">
+	contact no: +02560 - 85465623
+</p>     
+</div>
+<div class="col-xl-4 col-6 text-center">
+ <p>
+   <img src="/assets/images/home/truck-3.jpg" class="img-fluid">
+ </p>
+ <p>
+  <button (click)="hide_para()" class="btn btn-primary">View Details</button>
+</p>
+<p *ngIf="status">
+ contact no: +02560 - 85465624
+</p>      
+</div>
+<div class="col-xl-4 col-6 text-center">
+ <p>
+   <img src="/assets/images/home/truck-4.jpg" class="img-fluid">
+ </p>
+ <p>
+  <button (click)="hide_para()" class="btn btn-primary">View Details</button>
+</p>
+<p *ngIf="status">
+ contact no: +02560 - 85465625
+</p>      
+</div>
+<div class="col-xl-4 col-6 text-center">
+ <p>
+   <img src="/assets/images/home/truck-5.jpg" class="img-fluid">
+ </p>
+ <p>
+  <button (click)="hide_para()" class="btn btn-primary">View Details</button>
+</p>
+<p *ngIf="status">
+ contact no: +02560 - 85465633
+</p>     
+</div>
+<div class="col-xl-4 col-6 text-center">
+ <p>
+   <img src="/assets/images/home/truck-6.jpg" class="img-fluid">
+ </p>
+ <p>
+  <button (click)="hide_para()" class="btn btn-primary">View Details</button>
+</p>
+<p *ngIf="status">
+  contact no: +02560 - 85465653
+</p>      
+</div>
+</div>
+</div>
+<!---------------------------------------------vehicledetails.html--------------------------------------------->
+<!---------------------------------------------vehicledetails.ts--------------------------------------------->
+import { Component, OnInit } from '@angular/core';
+import { MyserviceService } from '../myservice.service';
+
+
+@Component({
+  selector: 'app-vehicle-details',
+  templateUrl: './vehicle-details.component.html',
+  styleUrls: ['./vehicle-details.component.css']
+})
+export class VehicleDetailsComponent implements OnInit {
+  
+  status:boolean = false;
+  
+  constructor(myserviceObj:MyserviceService) { }
+
+  ngOnInit(): void {
+  }
+  
+  hide_para(){
+   this.status = true;
+  }
+  
+
+
+}
+
+<!---------------------------------------------vehicledetails.ts--------------------------------------------->
+<!---------------------------------------------vehicledetails.css--------------------------------------------->
+.col-6{
+    border: solid;
+    border-radius: 10px;
+    border-color: darkgrey;
+}
+<!---------------------------------------------vehicledetails.css--------------------------------------------->
+<!---------------------------------------------myservice.ts--------------------------------------------->
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MyserviceService {
+
+  url = 'https://my-json-server.typicode.com/typicode/demo/posts';
+  constructor(public httpobj:HttpClient) { }
+ 
+  fetchData(){
+    console.log("Https Cilent");
+    console.log(this.httpobj);
+    console.log("Feact value from API");
+  }
+ 
+  postData(rec_from_componamt){
+   console.log('In my service');
+   console.log(rec_from_componamt);
+   let ans =  this.httpobj.post(this.url+'',rec_from_componamt);
+  //console.log(ans);
+  return ans;
+  }
+}
+<!---------------------------------------------myservice.ts--------------------------------------------->
